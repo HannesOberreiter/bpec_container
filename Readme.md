@@ -15,8 +15,16 @@ Following directory is set as working directory inside the docker environment.
 
 `/usr/local/src/`
 
-## Starting Docker
+## Running Docker
+
+Were "$PWD" is your linked working directory. If you remove bash at the end you start R interactive. 
 
 ```bash
-docker run -it --rm -v ~"$PWD":/usr/local/src/ hannesoberreiter/myimage
+docker run -ti --rm -v "$PWD":/usr/local/src/ hannesoberreiter/bpec_container bash
+```
+
+To run your linked R Script use following command
+
+```bash
+docker run -ti --rm -v "$PWD":/usr/local/src/ hannesoberreiter/bpeccontainer Rscript mitemap.R
 ```
